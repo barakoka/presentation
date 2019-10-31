@@ -13,5 +13,5 @@ App.MainPage = {
     return false;
   }
 };
-App.selector['#mainpage'] = App.MainPage;
+App.selector['#main-page'] = App.MainPage;
 

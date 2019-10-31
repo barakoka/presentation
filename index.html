@@ -11,17 +11,19 @@
     <script src="js/Drunkard.js"></script>
     <script src="js/Main.js"></script>
     <script src="js/Blackjack.js"></script>
+    <script src="js/FileManger.js"></script>
     <title>BaraKoka</title>
   </head>
   <body onload="App.onLoad.startApp()">
     <div id="navigation">
       <select name="clickMe" id="nav">
         <option value="" title="Click to open" selected>Menu</option>
-        <option value="#mainpage" title="it's only header">Main page</option>
+        <option value="#main-page" title="it's only header">Main page</option>
+        <option value="#file-manager" title="Open virtual file manager">File manager</option>
         <option value="#calc" title="Calculate what do you want">Calc</option>
-        <option value="#filmsforflying" title="Choose films for flying">Films</option>
-        <option value="#gcd" title="Find the greatest common divisor">GCD</option>
         <option value="#cards" title="Do you want to play card games?">Cards</option>
+        <option value="#films-for-flying" title="Choose films for flying">Films</option>
+        <option value="#gcd" title="Find the greatest common divisor">GCD</option>
         <option value="#tests" title="Service page">Tests</option>
       </select>
       <button id="show-info" onclick="App.Alert.showInfoButtonEvent()">Show info</button>

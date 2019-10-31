@@ -71,4 +71,4 @@ App.FilmsForFlying = {
     return false;
   }
 };
-App.selector['#filmsforflying'] = App.FilmsForFlying;
+App.selector['#films-for-flying'] = App.FilmsForFlying;

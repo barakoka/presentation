@@ -79,7 +79,7 @@ App.Cards.BlackJack = {
       else {this.writeOnGame('Player Win!');}
     }
   },
-  preparePage(){
+  preparePage: function(){
     App.Cards.bool = true;
     this.rand = 0;
     this.userCount = 0;
