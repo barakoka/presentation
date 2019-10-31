@@ -1,0 +1,399 @@
+/*   * {padding: 0; margin: 0; border: 0; } */
+/* .blocks {
+  background-color: #ccc;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+#blocks>div {
+  border: 1px solid black;
+  padding: 5px;
+  margin: 5px;
+  background-color: white;
+} */
+#navigation{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  display: flex;
+  width: calc(100% - 5px);
+  background-color: #20b2aa; /* lightseagreen */
+  padding-left: 5px;
+}
+#nav {
+  outline:none;
+}
+#blocks{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  margin-top: 12px;
+}
+/* Main Page */
+#main-page{
+  background-color: #fff;
+  height: 500px;
+  display: flex;
+  align-items: center;
+}
+#hello-main-page{
+  font-size: 36px;
+  width: 100%;
+  text-align: center;
+}
+/* GCD */
+#gcd {
+  position: relative;
+  left: calc(50% - 100px);
+  height: 257px;
+  width: 200px;
+}
+#gcd-in {
+  width: 151px;
+  margin-top: 5px;
+  margin-right: 4px
+}
+#gcd-out {
+  margin-top: 5px;
+  height: 20px;
+  width: 100%;
+  border: 1px solid black;
+}
+.text-field {
+  margin-top: 5px;
+}
+/*  */
+#fly-films {
+  position: relative;
+  left: calc(50% - 200px);
+  /* height: 257px; */
+  width: 400px;
+  overflow: auto;
+  padding: 0 5px 0 5px;
+}
+.fly-films-row{
+  display: flex;
+  padding-left: 60px;
+}
+#input-fly-time {
+  width: 50px;
+  margin: 0 5px;
+  text-align: center;
+}
+#show-films {
+  padding-left: 60px;
+}
+/* Calc */
+.button {
+  border: 2px solid black;
+  border-radius: 10px;
+  height: 45px;
+  width: 45px;
+  margin: 4px 2px 0 2px;
+  text-align: center;
+  font-size: 32px;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+}
+.button:hover {
+    cursor: pointer;
+    background: #eee;
+}
+.calc-body {
+  position: relative;
+  background: steelblue;
+  left: calc(50% - 132px);
+  display: flex;
+  flex-wrap: wrap;
+  width: 265px;
+  background-color: #fff;
+  padding-right: 0px;
+  margin-top: 10px;
+}
+#disp {
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 245px;
+  margin: 0 0 0 2px;
+  padding: 0 5px 0 5px;
+  font-size: 32px;
+  text-align: end;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.button.blank {
+    background-color: black;
+}
+/* */
+#mainBlock {
+    width: 100%;    
+}
+#footer{
+  height: 200px;
+}
+.block {
+    display: flex; 
+    justify-content: center; 
+}
+.column {
+    width: 50%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.pic{
+    border: 3px solid #d3a300;
+    border-radius: 10px;
+}
+#headBlock {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 64px;
+    color: rgb(255,255,255);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.midd {
+    height: 20px;
+}
+.textarea{
+    border: 3px solid #d3a300;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: rgb(200,200,100);
+}
+.gameName{
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    font-size: 24px;
+    color: rgb(0,0,155);
+}
+.rules {
+    color: rgb(155,0,0);
+}
+/*--------------------------------------*/
+.card-table {
+    background-color: #125f3f;
+}
+/* BlackJack */
+/* {background: #125f3f; padding: 0; margin: 0; border: 0; } */
+
+#blackjack-body{
+  background-color: #125f3f;
+}
+#blackjack-mainBlock {
+  width: 100%;    
+}
+.blackjack-block {
+  display: flex; 
+  justify-content: center; 
+
+}
+#blackjack-centralBlock {
+  width: 100%;
+}
+#blackjack-header {
+  justify-content: center;
+  padding: 20px;
+  font-size: 48px;
+  padding-bottom: 50px;
+}
+.blackjack-midblock {
+  display: flex; 
+  justify-content: flex-start;
+  padding-left: 20%;
+  padding-right: 20%;
+  color: rgb(255,255,255);
+  font-size: 24px;
+  font-style: italic;
+  height: 25px;
+}
+.blackjack-cardfild {
+  /*background: radial-gradient(#083123, #125f3f);*/
+  height: 205px;
+  display: flex; 
+  justify-content: center;
+  padding-top: 5px;
+}
+#blackjack-cardblock {
+  display: flex; 
+  justify-content: flex-end;
+  padding-right: 20%;
+  padding-top: 5px;
+}
+.blackjack-winblock {
+  position: absolute; 
+  display:block;
+  top: 370px;
+  left: 40%;
+  padding: 5px;
+  text-align: center;
+  color: rgb(255,255,255);
+  font-size: 50px;
+  font-style: italic;
+  border-radius: 20px;
+}
+#blackjack-button{
+  padding-top: 20px;
+  display: flex; 
+  justify-content: center;
+  color: rgb(255,255,255);
+  font-size: 18px;
+}
+.blackjack-vrt {
+  display: flex;
+  flex-direction: column;
+}
+/* Drunkard*/
+
+#drunkard-body{
+  background-color: #125f3f;
+}
+#drunkard-mainBlock {
+  display: flex; 
+  justify-content: space-evenly;
+  width: 100%;
+}
+.drunkard-cardcolum {
+width: 200px;
+}
+#drunkard-header {
+display: flex; 
+  justify-content: center;
+  color: rgb(255,255,255);
+  font-size: 48px;
+  font-style: italic;
+  padding-bottom: 100px;
+}
+.drunkard-winblock{
+  position: absolute; 
+  display:block;
+  top: 370px;
+  left: 40%;
+  padding: 5px;
+  text-align: center;
+  color: rgb(255,255,255);
+  font-size: 50px;
+  font-style: italic;
+  border-radius: 20px;
+}
+.drunkard-username {
+display: flex;
+justify-content: center; 
+color: rgb(255,255,255);
+  font-size: 24px;
+  font-style: italic;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  width: 200px;
+}
+.drunkard-cardfild {
+display: flex;
+justify-content: center;
+width: 200px;
+}
+#drunkard-centercolum {
+display: flex; 
+  justify-content: space-evenly;
+  width: 350px;
+}
+.drunkard-footer{
+  background-color: #125f3f;
+  height: 150px;
+}
+
+/** New alert pop-up **/
+.btn {
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid rgb(208, 255, 228);
+  background-color: #20b2aa;
+  outline:none;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  margin: 0 10px;
+}
+.btn:hover{
+  background-color: #00dddd;
+}
+.btn:active{
+  background-color: #00ffff;
+}
+.childPopapYes{
+  color: #fff;
+  background-color: #00cc00;
+}
+.childPopapYes:hover{
+  background-color: #00dd00;
+}
+.childPopapYes:active{
+  background-color: #00ff00;
+}
+.childPopupCancel{
+  color: #fff;
+  background-color: #fd0000;
+}
+.childPopupCancel:hover{
+  background-color: #fd4444;
+}
+.childPopupCancel:active{
+  background-color: #ff8888;
+}
+.popup-box {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  justify-content: center;
+  align-items: center;  
+  z-index: 100;
+}
+.popup-shadow {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.1;
+}
+.popup-content {
+  position: absolute;
+  display: block;
+  background: #20b2aa;    
+  border-radius: 5px; 
+  width: 400px;
+  /* left: calc(50% - 300px); */
+}
+.popup-header {
+  text-align: center;
+  color: #fff;    
+  font-weight: bold;
+  padding: 15px 20px 15px 20px; 
+}
+.popup-body {
+  text-align: center;
+  color: #001a0e;
+  padding: 15px 10px 5px 10px;
+  background: #fafafa;
+
+}
+.popup-footer {
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;   
+  background: #fafafa;
+  border-radius: 0 0 5px 5px;
+}
+.popup-footer .btn.btn-lg {
+  margin: 0 5px;
+}
