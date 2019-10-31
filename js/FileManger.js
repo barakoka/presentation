@@ -1,7 +1,6 @@
 App.FileManager = {
     space: "________",
     breadCrumbs: [''],
-    //dat: new Date(),
     monthNames: [
         "January",
         "February",
@@ -186,9 +185,9 @@ App.FileManager = {
     pageBody: '' +
         '<div id="bread-crumbs">/</div>' +
         '<button id="back-folder" onclick="App.FileManager.backFolder()"><b>To<br>up</b></button>' +
-        '<button id="show-all" onclick="App.FileManager.showAllContent()">Show<br>all content</button>' +
-        '<button id="show-dir" onclick="App.FileManager.showAllFolders()">Show<br>folders only</button>' +
-        '<button id="show-file" onclick="App.FileManager.showAllFiles()">Show<br>files only</button>' +
+        '<button id="show-all">Show<br>all content</button>' +
+        '<button id="show-dir">Show<br>folders only</button>' +
+        '<button id="show-file">Show<br>files only</button>' +
         '<button id="add-dir" onclick="App.FileManager.addNewFolder()">Add<br>new folder</button>' +
         '<button id="add-file" onclick="App.FileManager.addNewFile()">Add<br>new file</button>' +
         '<button id="show-files-created-after" onclick="App.FileManager.showFilesCreatedAfter()">Show files<br>created after</button>' +
@@ -201,16 +200,7 @@ App.FileManager = {
             this.changeBreadCrumbs('');
             this.loadContent(this.curentFolder[(this.curentFolder.length-1)], 'All');
         }
-    },      
-    showAllContent: function(){
-        this.loadContent(this.curentFolder[(this.curentFolder.length-1)], 'All');
-    },    
-    showAllFolders: function(){
-        this.loadContent(this.curentFolder[(this.curentFolder.length-1)], 'Folder');
-    },    
-    showAllFiles: function(){
-        this.loadContent(this.curentFolder[(this.curentFolder.length-1)], 'File');
-    },    
+    }, 
     addNewFolder: function(){
         let newName = prompt("Enter name of new folder" + '. Remember: do not use "space"!', "new_folder");
         if ( newName != null && this.isNotDouble(newName + "-folder") ) {
@@ -221,7 +211,7 @@ App.FileManager = {
                 files: []
             };
             this.curentFolder.push(newObj);
-            this.showAllContent();
+            this.loadContent(this.curentFolder[(this.curentFolder.length-1)], 'All');
         }
     },    
     addNewFile: function(){
@@ -233,7 +223,7 @@ App.FileManager = {
                 date: new Date()
             };
             this.curentFolder.push(newObj);
-            this.showAllContent();
+            this.loadContent(this.curentFolder[(this.curentFolder.length-1)], 'All');
         }
     },    
     showFilesCreatedAfter: function() {
@@ -353,7 +343,16 @@ App.FileManager = {
     },
     preparePage: function(){
         App.FileManager.curentFolder[0] = App.FileManager.fs;
-        App.FileManager.showAllContent();
+        App.FileManager.loadContent(this.curentFolder[(this.curentFolder.length-1)], 'All');
+        document.getElementById('show-all').addEventListener('click', function() {
+            App.FileManager.loadContent(App.FileManager.curentFolder[(App.FileManager.curentFolder.length-1)], 'All');
+        });
+        document.getElementById('show-dir').addEventListener('click', function() {
+            App.FileManager.loadContent(App.FileManager.curentFolder[(App.FileManager.curentFolder.length-1)], 'Folder');
+        });
+        document.getElementById('show-file').addEventListener('click', function() {
+            App.FileManager.loadContent(App.FileManager.curentFolder[(App.FileManager.curentFolder.length-1)], 'File');
+        });
     }
 }
 
