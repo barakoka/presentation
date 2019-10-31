@@ -11,7 +11,7 @@ var App = {
     },
     buildPage: function(hash) {
         if (!App.selector[hash]) {
-            hash = '#mainpage';
+            hash = '#main-page';
             alert('Wrong URL!');
         }
         elem = App.selector[hash];
