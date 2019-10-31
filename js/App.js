@@ -57,7 +57,7 @@ App.onLoad = {
 };
 App.Alert = {
     showAlert: function(inputPlace, headContent, bodyContent, isConfirm, okCallback, cancelCallback, okBtnText = 'Yes', noBtnText = 'Cancel') {
-        let popupHead = headContent ?  '<div class="popup-header">' + headContent + '</div>' : '';
+        headContent = headContent ? headContent : '';
         let buttons = isConfirm 
         ? ( '<button type="button" class="btn childPopapYes">' + okBtnText + '</button>' +
             '<button type="button" class="btn childPopupCancel">' + noBtnText + '</button>')
@@ -65,8 +65,8 @@ App.Alert = {
         let htmlString = '' +
             '<div class="popup-box">' +
                 '<div class="popup-shadow"></div>' +
-                '<div class="popup-content">' 
-                    +popupHead +
+                '<div class="popup-content">' +
+                    '<div class="popup-header">' + headContent + '</div>' +
                     '<div class="popup-body">' + bodyContent + '</div>' +
                     '<div class="popup-footer">' + buttons + '</div>' +
                 '</div>' +
@@ -97,11 +97,26 @@ App.Alert = {
     showInfo: function(infoObj){
       App.Alert.showAlert('#navigation', infoObj.headText, infoObj.bodyText);
     }
-}
+};
 App.Tests = {
+    information: {
+        headText: '',
+        bodyText: 'text'
+    },
+    pageBody: '' +
+        '<div id="test-page">' +
+            '<input type="button" value="Show confirm alert!" onclick="App.Tests.showConfirmAlert()">' +
+        '',
+    preparePage: function(){
+        return false;
+    },
     showConfirmAlert: function() {
-        App.Alert.showAlert('#navigation', 'Hello!', 'Body text <br> Abra kadabra', true);
+        let cbOk = function(){
+            alert('Callback function works!')
+        };
+        App.Alert.showAlert('#navigation', 'Hello!', 'Body text <br> Abra kadabra', true, cbOk);
     }
-}
+};
+App.selector['#tests'] = App.Tests;
 
 
