@@ -79,7 +79,29 @@ App.Cards.BlackJack = {
       else {this.writeOnGame('Player Win!');}
     }
   },
-  preparePage: function(){
+  loadPage: function(){
+    document.getElementById(App.palce).innerHTML = '' +
+      '<div id="blackjack-body">' +
+        '<div id="blackjack-downbar" class="blackjack-winblock"></div>' +    
+        '<div id="blackjack-mainBlock" class="blackjack-block">' +
+            '<div id="blackjack-centralBlock">' +
+                '<div id="blackjack-header" class="blackjack-midblock">Black Jack</div>' +
+                '<div id="blackjack-HeadCPU" class="blackjack-midblock">Dealer</div>' +
+                '<div id="cpu" class="blackjack-cardfild"></div>' +
+                '<div class="blackjack-midblock"></div>' +
+                '<div id="blackjack-cardblock">' +
+                    '<div class="blackjack-vrt">' +
+                        '<img src="cards/000.png" height="200px" onclick="App.Cards.BlackJack.start()">' +
+                        '<button id="button" onclick="App.Cards.BlackJack.openCards()">OPEN CARDS</button>' +
+                    '</div>' +
+                '</div>' +
+                '<div id="blackjack-HeadPL" class="blackjack-midblock">Player</div>' +
+                '<div id="player" class="blackjack-cardfild"></div>' +
+            '</div>' +
+        '</div>' +
+        '<div class="drunkard-footer"></div>'+
+      '</div>'+
+    '';
     App.Cards.bool = true;
     this.rand = 0;
     this.userCount = 0;
@@ -87,28 +109,6 @@ App.Cards.BlackJack = {
     this.firstStep = true;
     this.cpuCards = [];  
     this.compTakeCard(); 
-  },
-  pageBody: '' +
-    '<div id="blackjack-body">' +
-      '<div id="blackjack-downbar" class="blackjack-winblock"></div>' +    
-      '<div id="blackjack-mainBlock" class="blackjack-block">' +
-          '<div id="blackjack-centralBlock">' +
-              '<div id="blackjack-header" class="blackjack-midblock">Black Jack</div>' +
-              '<div id="blackjack-HeadCPU" class="blackjack-midblock">Dealer</div>' +
-              '<div id="cpu" class="blackjack-cardfild"></div>' +
-              '<div class="blackjack-midblock"></div>' +
-              '<div id="blackjack-cardblock">' +
-                  '<div class="blackjack-vrt">' +
-                      '<img src="cards/000.png" height="200px" onclick="App.Cards.BlackJack.start()">' +
-                      '<button id="button" onclick="App.Cards.BlackJack.openCards()">OPEN CARDS</button>' +
-                  '</div>' +
-              '</div>' +
-              '<div id="blackjack-HeadPL" class="blackjack-midblock">Player</div>' +
-              '<div id="player" class="blackjack-cardfild"></div>' +
-          '</div>' +
-      '</div>' +
-      '<div class="drunkard-footer"></div>'+
-    '</div>'+
-    ''
+  }
 };
 App.selector['#blackjack'] = App.Cards.BlackJack;

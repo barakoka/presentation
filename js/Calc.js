@@ -3,9 +3,17 @@ App.Calc = {
         calcDisplay: {},
         buttons: []
     },
-    information: {
-        headText: 'Hello!',
-        bodyText: 'Calculate what you want'
+    translit: {
+        information: {
+            headText: {
+                EN: 'Hello!',
+                UA: 'Привіт!'
+            },
+            bodyText: {
+                EN: 'Calculate what you want',
+                UA: 'Рахуй все що хочеш'
+            }
+        }
     },
     addNumberOrOperator: function(number) {
         if(this.data.calcDisplay.innerText === '0' && number !== '/' && number !== '*' && number !== '.') {
@@ -36,7 +44,33 @@ App.Calc = {
         }
         return result;
     },
-    preparePage: function() {
+    loadPage: function() {
+        document.getElementById(App.palce).innerHTML = '' +
+            '<div class="calc-body">' +
+                '<div id="disp"></div>' +
+                '<div class="button data">7</div>' +
+                '<div class="button data">8</div>' +
+                '<div class="button data">9</div>' +
+                '<div class="button delete">←</div>' +
+                '<div class="button remove">C</div>' +
+                '<div class="button data">4</div>' +
+                '<div class="button data">5</div>' +
+                '<div class="button data">6</div>' +
+                '<div class="button data">*</div>' +
+                '<div class="button data">/</div>' +
+                '<div class="button data">1</div>' +
+                '<div class="button data">2</div>' +
+                '<div class="button data">3</div>' +
+                '<div class="button data">+</div>' +
+                '<div class="button data">-</div>' +
+                '<div class="button"></div>' +
+                '<div class="button data">0</div>' +
+                '<div class="button data">.</div>' +
+                '<div class="button action">=</div>' +
+                '<div class="button"></div>' +
+            '</div>' +   
+        '';
+
         this.data.calcDisplay = document.getElementById('disp');
         this.data.calcDisplay.innerText = '0';
         this.data.buttons = [].slice.call(document.querySelectorAll('.button.data')); // document.getElementsByClassName('button')
@@ -57,32 +91,7 @@ App.Calc = {
               App.Calc.data.calcDisplay.innerText = calculate();
           }
       });
-    },
-    pageBody: '' +
-        '<div class="calc-body">' +
-            '<div id="disp"></div>' +
-            '<div class="button data">7</div>' +
-            '<div class="button data">8</div>' +
-            '<div class="button data">9</div>' +
-            '<div class="button delete">←</div>' +
-            '<div class="button remove">C</div>' +
-            '<div class="button data">4</div>' +
-            '<div class="button data">5</div>' +
-            '<div class="button data">6</div>' +
-            '<div class="button data">*</div>' +
-            '<div class="button data">/</div>' +
-            '<div class="button data">1</div>' +
-            '<div class="button data">2</div>' +
-            '<div class="button data">3</div>' +
-            '<div class="button data">+</div>' +
-            '<div class="button data">-</div>' +
-            '<div class="button"></div>' +
-            '<div class="button data">0</div>' +
-            '<div class="button data">.</div>' +
-            '<div class="button action">=</div>' +
-            '<div class="button"></div>' +
-        '</div>' +   
-        ''
+    }
 };
 App.selector['#calc'] = App.Calc;
 

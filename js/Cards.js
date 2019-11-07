@@ -21,43 +21,44 @@ App.Cards = {
 
     return count;
   },
-  preparePage: function(){
+  loadPage: function(){
+    document.getElementById(App.palce).innerHTML = '' +
+      '<div class="card-table">' +
+        '<div id="headBlock">Choose the game</div>' +
+        '<div id="mainBlock" class="block">' +
+            '<div id="leftpanel" class="column">' +
+                '<div id="call-blackjack" class="pic">' +
+                    '<img src="img/blackjack.png" width="95%">' +
+                '</div>' +
+                '<div class="midd"></div>' +
+                '<div class="textarea">' +
+                    '<div class="gameName">BlackJack</div>' +
+                    '<span class="rules">Rules:</span>' +
+                    '<span class="mytext">will be added</span>' +
+                '</div>' +
+            '</div>' +
+            '<div id="rightpanel" class="column">' +
+                '<div id="call-drunkard" class="pic">' +
+                    '<img src="img/drunkard.png" width="95%">' +
+                '</div>' +
+                '<div class="midd"></div>' +
+                '<div class="textarea">' +
+                    '<div class="gameName">Drunkard</div>' +
+                    '<span class="rules">Rules:</span>' +
+                    '<span class="mytext">will be added</span>' +
+                '</div>' +
+            '</div>' +
+        '</div>' +
+        '<div id="footer"></div>' +
+      '</div>' +
+    '';
+
     document.getElementById('call-blackjack').addEventListener('click', function(){
       location.hash = '#blackjack';
     });
     document.getElementById('call-drunkard').addEventListener('click', function(){
       location.hash = '#drunkard';
     });
-  },
-  pageBody: '' +
-    '<div class="card-table">' +
-      '<div id="headBlock">Choose the game</div>' +
-      '<div id="mainBlock" class="block">' +
-          '<div id="leftpanel" class="column">' +
-              '<div id="call-blackjack" class="pic">' +
-                  '<img src="img/blackjack.png" width="95%">' +
-              '</div>' +
-              '<div class="midd"></div>' +
-              '<div class="textarea">' +
-                  '<div class="gameName">BlackJack</div>' +
-                  '<span class="rules">Rules:</span>' +
-                  '<span class="mytext">will be added</span>' +
-              '</div>' +
-          '</div>' +
-          '<div id="rightpanel" class="column">' +
-              '<div id="call-drunkard" class="pic">' +
-                  '<img src="img/drunkard.png" width="95%">' +
-              '</div>' +
-              '<div class="midd"></div>' +
-              '<div class="textarea">' +
-                  '<div class="gameName">Drunkard</div>' +
-                  '<span class="rules">Rules:</span>' +
-                  '<span class="mytext">will be added</span>' +
-              '</div>' +
-          '</div>' +
-      '</div>' +
-      '<div id="footer"></div>' +
-    '</div>' +
-    ''
+  }
 };
 App.selector['#cards'] = App.Cards;

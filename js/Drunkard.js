@@ -151,7 +151,38 @@ App.Cards.Drunkard = {
   addCard: function(place, card, name){
       document.getElementById(place).innerHTML  += '<img id="' + card + '" src="cards/' + name + '.png" height="200px">';
   },
-  preparePage: function(){
+  loadPage: function(){
+    document.getElementById(App.palce).innerHTML = '' +
+      '<div id="drunkard-body">' +
+        '<div id="downbar" class="drunkard-winblock"></div>' +
+        '<div id="drunkard-header">Drunkard</div>' +
+        '<div id="drunkard-mainBlock">' +            
+            '<div id="leftcolum" class="drunkard-cardcolum">' +            
+                '<div class="drunkard-username">Computer</div>' +
+                '<div id="cpu" class="drunkard-cardfild">' +
+                    '<img src="cards/000.png" height="200px">' +
+                '</div>' +
+                '<div id="HeadCPU" class="drunkard-username"></div>' +
+            '</div>' +
+
+            '<div id="drunkard-centercolum">' +    
+                '<div id="cardblock-cpu" class="drunkard-bttlefild"></div>' +
+                '<div id="cardblock-user" class="drunkard-bttlefild"></div>' +
+            '</div>' +
+
+            '<div id="rightcolum" class="drunkard-cardcolum">' +
+                '<div class="drunkard-username">Player</div>' +
+                '<div id="player" class="drunkard-cardfild">' +
+                    '<img id="uc" src="cards/000.png" height="200px" onclick="App.Cards.Drunkard.start()">' +
+                '</div>' +
+                '<div id="HeadPL" class="drunkard-username"></div>' +
+            '</div>' +    
+        '</div>' +
+        '' +
+      '</div>' +
+      '<div class="drunkard-footer"></div>' +
+    '';
+
     App.Cards.bool = true;
     this.userCards.length = 0;
     this.compCards.length = 0;
@@ -159,35 +190,6 @@ App.Cards.Drunkard = {
     this.iterator = 0;
     this.click = 1; 
     this.sortCards(); 
-  },
-  pageBody: '' +
-    '<div id="drunkard-body">' +
-      '<div id="downbar" class="drunkard-winblock"></div>' +
-      '<div id="drunkard-header">Drunkard</div>' +
-      '<div id="drunkard-mainBlock">' +            
-          '<div id="leftcolum" class="drunkard-cardcolum">' +            
-              '<div class="drunkard-username">Computer</div>' +
-              '<div id="cpu" class="drunkard-cardfild">' +
-                  '<img src="cards/000.png" height="200px">' +
-              '</div>' +
-              '<div id="HeadCPU" class="drunkard-username"></div>' +
-          '</div>' +
-
-          '<div id="drunkard-centercolum">' +    
-              '<div id="cardblock-cpu" class="drunkard-bttlefild"></div>' +
-              '<div id="cardblock-user" class="drunkard-bttlefild"></div>' +
-          '</div>' +
-
-          '<div id="rightcolum" class="drunkard-cardcolum">' +
-              '<div class="drunkard-username">Player</div>' +
-              '<div id="player" class="drunkard-cardfild">' +
-                  '<img id="uc" src="cards/000.png" height="200px" onclick="App.Cards.Drunkard.start()">' +
-              '</div>' +
-              '<div id="HeadPL" class="drunkard-username"></div>' +
-          '</div>' +    
-      '</div>' +
-      '' +
-    '</div>' +
-    '<div class="drunkard-footer"></div>'
+  }
 };
 App.selector['#drunkard'] = App.Cards.Drunkard;

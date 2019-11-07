@@ -1,16 +1,20 @@
 App.MainPage = {
-
-  pageBody: '' +
-    '<div id="main-page">' +
-      '<div id="hello-main-page">Hello! It\'s Main Page</div>' +
-    '</div>' +
-    '',
-  information: {
-    headText: false,
-    bodyText: 'It\'s Main page :)'
+  translit: {
+    information: {
+        headText: {
+            EN: false
+        },
+        bodyText: {
+            EN: 'It\'s Main page :)'
+        }
+    }
   },
-  preparePage: function(){
-    return false;
+  loadPage: function(){
+    document.getElementById(App.palce).innerHTML = '' +
+      '<div id="main-page">' +
+        '<div id="hello-main-page">Hello! It\'s Main Page</div>' +
+      '</div>' +
+    '';
   }
 };
 App.selector['#main-page'] = App.MainPage;

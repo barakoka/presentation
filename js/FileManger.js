@@ -1,4 +1,48 @@
 App.FileManager = {
+  translit: {
+      buttons: {
+        backFolder: {
+          EN: '<b>To<br>up</b>',
+          UA: '<b>На<br>гору</b>'
+        },
+        showAll: {
+          EN: 'Show<br>all',
+          UA: 'Показати<br>все'
+        },
+        showDir: {
+          EN: 'Show<br>folders only',
+          UA: 'Показати<br>каталоги'
+        },
+        showFile: {
+          EN: 'Show<br>files only',
+          UA: 'Показати<br>файли'
+        },
+        addNewFolder: {
+          EN: 'Add<br>new folder',
+          UA: 'Додати<br>каталог'
+        },
+        addNewFile: {
+          EN: 'Add<br>new file',
+          UA: 'Додати<br>файл'
+        },
+        showFilesCreatedAfter: {
+          EN: 'Show files<br>created after',
+          UA: 'Показати файли<br>створені після...'
+        },
+        delete: {
+          EN: 'Delete',
+          UA: 'Видалити'
+        },
+        rename: {
+          EN: 'Rename',
+          UA: 'Перейменувати'
+        },
+        open: {
+          EN: 'Open',
+          UA: 'Відкрити'
+        }
+      }
+    },
     space: "________",
     breadCrumbs: [''],
     monthNames: [
@@ -182,18 +226,6 @@ App.FileManager = {
         }
     ],
     curentFolder: [],
-    pageBody: '' +
-        '<div id="bread-crumbs">/</div>' +
-        '<button id="back-folder" onclick="App.FileManager.backFolder()"><b>To<br>up</b></button>' +
-        '<button id="show-all">Show<br>all content</button>' +
-        '<button id="show-dir">Show<br>folders only</button>' +
-        '<button id="show-file">Show<br>files only</button>' +
-        '<button id="add-dir" onclick="App.FileManager.addNewFolder()">Add<br>new folder</button>' +
-        '<button id="add-file" onclick="App.FileManager.addNewFile()">Add<br>new file</button>' +
-        '<button id="show-files-created-after" onclick="App.FileManager.showFilesCreatedAfter()">Show files<br>created after</button>' +
-        '<hr>' +
-        '<div id="main-fild"></div>' +
-    '',
     backFolder: function(){
         if (this.curentFolder.length > 1){
             this.curentFolder.splice((this.curentFolder.length-1), 1);
@@ -316,16 +348,16 @@ App.FileManager = {
         var string = "<div id=" + type + name + " class=" + type + ">";
     
         if( type == 'folder' ){
-            string += "<button onclick=App.FileManager.openFolder('" + name + "-" + type + "')>Open</button>";
+            string += '<button onclick=App.FileManager.openFolder("' + name + '-' + type + '")>' + App.showTranslit(this.translit.buttons.open) + '</button>';
         }
         else {
             string += this.space;
         }
     
         string += this.space + name + this.space + this.space + date.getDate() + "-" + this.monthNames[date.getMonth()] + "-" + date.getFullYear() + this.space +
-            "<button onclick=App.FileManager.rename('" + name + "-" + type + "')>Rename " + type + "</button>" +
-            "<button onclick=App.FileManager.delete('" + name + "-" + type + "')>Delete " + type + "</button>" +
-            "</div>";
+            '<button onclick=App.FileManager.rename("' + name + '-' + type + '")>' + App.showTranslit(this.translit.buttons.rename) +  '</button>' +
+            '<button onclick=App.FileManager.delete("' + name + '-' + type + '")>' + App.showTranslit(this.translit.buttons.delete) +  '</button>' +
+            '</div>';
     
         return string;
     },    
@@ -341,7 +373,20 @@ App.FileManager = {
         }
         return true;
     },
-    preparePage: function(){
+    loadPage: function(){
+        document.getElementById(App.palce).innerHTML = '' +
+            '<div id="bread-crumbs">/</div>' +
+            '<button id="back-folder" onclick="App.FileManager.backFolder()">' + App.showTranslit(this.translit.buttons.backFolder) + '</button>' +
+            '<button id="show-all">' + App.showTranslit(this.translit.buttons.showAll) + '</button>' +
+            '<button id="show-dir">' + App.showTranslit(this.translit.buttons.showDir) + '</button>' +
+            '<button id="show-file">' + App.showTranslit(this.translit.buttons.showFile) + '</button>' +
+            '<button id="add-dir" onclick="App.FileManager.addNewFolder()">' + App.showTranslit(this.translit.buttons.addNewFolder) + '</button>' +
+            '<button id="add-file" onclick="App.FileManager.addNewFile()">' + App.showTranslit(this.translit.buttons.addNewFile) + '</button>' +
+            '<button id="show-files-created-after" onclick="App.FileManager.showFilesCreatedAfter()">' + App.showTranslit(this.translit.buttons.showFilesCreatedAfter) + '</button>' +
+            '<hr>' +
+            '<div id="main-fild"></div>' +
+        '';
+        
         App.FileManager.curentFolder[0] = App.FileManager.fs;
         App.FileManager.loadContent(this.curentFolder[(this.curentFolder.length-1)], 'All');
         document.getElementById('show-all').addEventListener('click', function() {

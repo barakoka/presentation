@@ -15,31 +15,73 @@ var App = {
             alert('Wrong URL!');
         }
         elem = App.selector[hash];
-        document.getElementById(App.palce).innerHTML = elem.pageBody;
-        elem.preparePage();
+        elem.loadPage();
         App.addGlobalPageLogic();
     },
     addGlobalPageLogic: function(){
         let elem = document.getElementById('show-info')
-        if(App.selector[location.hash] && !App.selector[location.hash].information){
+        if(App.selector[location.hash] && !App.selector[location.hash].translit
+            || App.selector[location.hash] && App.selector[location.hash].translit && !!App.selector[location.hash].translit.information[App.getLang()]){
             elem.setAttribute('disabled', 'disabled');
         } else {
             elem.removeAttribute('disabled');
         }
+    },
+    getLang: function(){
+        if(localStorage.getItem('lang')) {
+            return localStorage.getItem('lang');
+        } else{
+            return 'EN';
+        }
+    },
+    setLang: function(lang) {
+        localStorage.setItem('lang', lang);
+    },
+    showTranslit: function(obj) {
+        if (!!obj[this.getLang()]){
+            return obj[this.getLang()];
+        } else {
+            return obj['EN'];
+        }
+    },
+    changeLang: function() {
+        let selected = document.getElementById('change-lang').options[document.getElementById('change-lang').selectedIndex].value;
+        this.setLang(selected);
+        location.reload();
     }
 };
 App.onLoad = {
     isBrowserIE: !!document.documentMode,
+    changeLangOnBtn: function(){
+        let index;
+        let lang = localStorage.getItem('lang') ? localStorage.getItem('lang') : false;
+        let i = 0;
+        let selector = document.getElementById('change-lang').options
+        while (lang && selector[i]) {
+            if (selector[i].value == lang) {
+                return (selector[i].selected = true);
+            }
+            i++;
+        }
+    },
     startApp: function(){
         if(this.isBrowserIE){
             alert('!!! You are using IE browser, it shows this site not correct !!!');
         }   
 
+        document.getElementById('change-lang').addEventListener('change', function() {
+            App.changeLang();
+        })
+
+        App.setLang(App.getLang());
+
+        this.changeLangOnBtn();
+
         if(location.hash && App.selector[location.hash]){
             App.buildPage(location.hash);
         }
         else{
-            location.hash = '#mainpage';
+            location.hash = '#main-page';
         }
 
         window.addEventListener('hashchange', function(){
@@ -92,31 +134,12 @@ App.Alert = {
         }
     },
     showInfoButtonEvent: function(){
-        App.Alert.showInfo(App.selector[location.hash].information);
+        App.Alert.showInfo(App.selector[location.hash].translit.information);
     },
     showInfo: function(infoObj){
-      App.Alert.showAlert('#navigation', infoObj.headText, infoObj.bodyText);
+      App.Alert.showAlert('#navigation', infoObj.headText[App.getLang()], infoObj.bodyText[App.getLang()]);
     }
 };
-App.Tests = {
-    information: {
-        headText: '',
-        bodyText: 'text'
-    },
-    pageBody: '' +
-        '<div id="test-page">' +
-            '<input type="button" value="Show confirm alert!" onclick="App.Tests.showConfirmAlert()">' +
-        '',
-    preparePage: function(){
-        return false;
-    },
-    showConfirmAlert: function() {
-        let cbOk = function(){
-            alert('Callback function works!')
-        };
-        App.Alert.showAlert('#navigation', 'Hello!', 'Body text <br> Abra kadabra', true, cbOk);
-    }
-};
-App.selector['#tests'] = App.Tests;
+
 
 

@@ -22,16 +22,6 @@ App.FilmsForFlying = {
     {name: 'Long Film 6', time: 450}
   ],
   texboxId: 'show-films',
-  pageBody: '' +
-    '<div id="fly-films" class="text-field">' +
-      '<div class="fly-films-row">' +
-        '<div class="text-field">Type flying time in minutes: </div>' +
-        '<input type="number" value="120" step="5" min="40" max="1200" id="input-fly-time" >' +
-        '<input type="button" value="GO!" onclick="App.FilmsForFlying.main()">' +
-      '</div>' +
-      '<hr>' +
-      '<div id="show-films"></div>' +
-    '</div>',
   bestFilms: function (flyTime, films) {
     let length = films.length;
     let filmPair = [];
@@ -67,8 +57,18 @@ App.FilmsForFlying = {
     let time = document.getElementById('input-fly-time').value;
     App.FilmsForFlying.showFilms(App.FilmsForFlying.bestFilms(time, App.FilmsForFlying.films));
   },
-  preparePage: function(){
-    return false;
+  loadPage: function(){
+    document.getElementById(App.palce).innerHTML = '' +
+      '<div id="fly-films" class="text-field">' +
+        '<div class="fly-films-row">' +
+          '<div class="text-field">Type flying time in minutes: </div>' +
+          '<input type="number" value="120" step="5" min="40" max="1200" id="input-fly-time" >' +
+          '<input type="button" value="GO!" onclick="App.FilmsForFlying.main()">' +
+        '</div>' +
+        '<hr>' +
+        '<div id="show-films"></div>' +
+      '</div>'
+    '';
   }
 };
 App.selector['#films-for-flying'] = App.FilmsForFlying;

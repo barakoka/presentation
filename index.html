@@ -12,6 +12,7 @@
     <script src="js/Main.js"></script>
     <script src="js/Blackjack.js"></script>
     <script src="js/FileManger.js"></script>
+    <script src="js/Tests.js"></script>
     <title>BaraKoka</title>
   </head>
   <body onload="App.onLoad.startApp()">
@@ -27,6 +28,10 @@
         <option value="#tests" title="Service page">Tests</option>
       </select>
       <button id="show-info" onclick="App.Alert.showInfoButtonEvent()">Show info</button>
+      <select name="change-lang" id="change-lang">
+        <option value="EN" title="English">EN</option>
+        <option value="UA" title="Ukrainian">UA</option>
+      </select>
     </div>
     <div id="blocks"></div>
   </body>
