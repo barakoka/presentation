@@ -1,4 +1,9 @@
 App.Cards = {
+  connectionParams: {
+    hash: '#cards',
+    title: 'Do you want to play card games?',
+    name: 'Cards'
+},
   kolodaBig: [
     101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113,
     201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213,

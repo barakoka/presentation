@@ -20,11 +20,13 @@ var App = {
     },
     addGlobalPageLogic: function(){
         let elem = document.getElementById('show-info')
-        if(App.selector[location.hash] && !App.selector[location.hash].translit
-            || App.selector[location.hash] && App.selector[location.hash].translit && !!App.selector[location.hash].translit.information[App.getLang()]){
-            elem.setAttribute('disabled', 'disabled');
-        } else {
-            elem.removeAttribute('disabled');
+        if(App.selector[location.hash]
+            && App.selector[location.hash].translit
+            && App.selector[location.hash].translit.information
+            && App.selector[location.hash].translit.information[App.getLang()]){
+                elem.removeAttribute('disabled');
+            } else {
+                elem.setAttribute('disabled', 'disabled');
         }
     },
     getLang: function(){
@@ -64,10 +66,26 @@ App.onLoad = {
             i++;
         }
     },
+    buildSelectorMenu: function() {
+        for(el in App.selector) {
+            elem = App.selector[el];
+            if(elem.connectionParams) {
+                document.getElementById('nav').innerHTML += '' +
+                    '<option value="' + elem.connectionParams.hash +
+                    '" title="' + elem.connectionParams.title +
+                    '" selected>'+ elem.connectionParams.name +
+                    '</option>';
+            }
+        }
+        
+        document.getElementById('nav').options[0].selected = true;
+    },
     startApp: function(){
         if(this.isBrowserIE){
             alert('!!! You are using IE browser, it shows this site not correct !!!');
         }   
+
+        this.buildSelectorMenu();
 
         document.getElementById('change-lang').addEventListener('change', function() {
             App.changeLang();

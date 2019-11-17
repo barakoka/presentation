@@ -1,4 +1,9 @@
 App.FileManager = {
+  connectionParams: {
+    hash: '#file-manager',
+    title: 'Open virtual file manager',
+    name: 'File manager'
+},
   translit: {
       buttons: {
         backFolder: {

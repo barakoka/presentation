@@ -1,4 +1,9 @@
 App.MainPage = {
+  connectionParams: {
+    hash: '#main-page',
+    title: 'it\'s main page',
+    name: 'Main Page'
+  },
   translit: {
     information: {
         headText: {

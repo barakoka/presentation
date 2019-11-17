@@ -1,4 +1,9 @@
 App.FilmsForFlying = {
+  connectionParams: {
+    hash: '#films-for-flying',
+    title: 'Choose films for flying',
+    name: 'Films'
+},
   films: [
     {name: 'Matrix', time: 109},
     {name: 'Matrix 2', time: 119},

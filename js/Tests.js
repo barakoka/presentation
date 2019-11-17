@@ -1,4 +1,9 @@
 App.Tests = {
+    connectionParams: {
+        hash: '#tests',
+        title: 'Service page',
+        name: 'Tests'
+    },
     translit:{
         information: {
             headText: {

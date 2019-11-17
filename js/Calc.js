@@ -1,4 +1,9 @@
 App.Calc = {
+    connectionParams: {
+        hash: '#calc',
+        title: 'Calculate what do you want',
+        name: 'Calc'
+    },
     data: {
         calcDisplay: {},
         buttons: []

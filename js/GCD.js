@@ -1,5 +1,10 @@
 // Greatest Common Divisior
 App.GCD = {
+    connectionParams: {
+        hash: '#gcd',
+        title: 'Find the greatest common divisor',
+        name: 'GCD'
+    },
     getDivisior: function(arr){
         divisior = 0;
         for(let i=1; i<=arr[0]; i++) {
