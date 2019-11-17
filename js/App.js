@@ -50,22 +50,15 @@ var App = {
         let selected = document.getElementById('change-lang').options[document.getElementById('change-lang').selectedIndex].value;
         this.setLang(selected);
         location.reload();
+    },
+    selectCurentLang() {
+        [].slice.call(document.getElementById('change-lang').options).filter(element => {
+            return element.value == App.getLang()
+        })[0].selected = true;        
     }
 };
 App.onLoad = {
     isBrowserIE: !!document.documentMode,
-    changeLangOnBtn: function(){
-        let index;
-        let lang = localStorage.getItem('lang') ? localStorage.getItem('lang') : false;
-        let i = 0;
-        let selector = document.getElementById('change-lang').options
-        while (lang && selector[i]) {
-            if (selector[i].value == lang) {
-                return (selector[i].selected = true);
-            }
-            i++;
-        }
-    },
     buildSelectorMenu: function() {
         for(el in App.selector) {
             elem = App.selector[el];
@@ -92,8 +85,7 @@ App.onLoad = {
         })
 
         App.setLang(App.getLang());
-
-        this.changeLangOnBtn();
+        App.selectCurentLang();
 
         if(location.hash && App.selector[location.hash]){
             App.buildPage(location.hash);
@@ -112,6 +104,7 @@ App.onLoad = {
             if (selected){
                 location.hash = selected;
             }
+            App.selectCurentLang();
         });
     }
 };
