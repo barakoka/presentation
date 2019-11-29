@@ -82,12 +82,14 @@ App.onLoad = {
         document.getElementById('nav').options[0].selected = true;
     },
     addColorSelector: function() {
+        let str = '';
         let select = document.getElementById('change-color');
-        color = this.colors;
-        select.innerHTML = '';
-        for(i in color) {
-            select.innerHTML += '<option value="' + color[i] + '" style="background-color: ' + color[i] + '; color: ' + color[i] + ';">Color</option>';
-        }
+        this.colors.forEach(color =>
+            str += '<option value="' + color + '" style="background-color: ' + color + '; color: ' + color + ';">Color</option>'
+        );
+
+        select.innerHTML = str;
+
         select.addEventListener('change', function() {
             let root = document.querySelector(':root');
             let rootStyles = getComputedStyle(root);
