@@ -59,6 +59,14 @@ var App = {
 };
 App.onLoad = {
     isBrowserIE: !!document.documentMode,
+    colors: [
+        "#20b2aa",
+        "#ccc",
+        "blue",
+        "green",
+        "#333",
+        "yellow"
+    ],
     buildSelectorMenu: function() {
         for(el in App.selector) {
             elem = App.selector[el];
@@ -73,6 +81,21 @@ App.onLoad = {
         
         document.getElementById('nav').options[0].selected = true;
     },
+    addColorSelector: function() {
+        let select = document.getElementById('change-color');
+        color = this.colors;
+        select.innerHTML = '';
+        for(i in color) {
+            select.innerHTML += '<option value="' + color[i] + '" style="background-color: ' + color[i] + '; color: ' + color[i] + ';">Color</option>';
+        }
+        select.addEventListener('change', function() {
+            let root = document.querySelector(':root');
+            let rootStyles = getComputedStyle(root);
+            // let navPanelColor = rootStyles.getPropertyValue('--nav-bar-color');
+            let selectedColor = document.getElementById('change-color').options[document.getElementById('change-color').selectedIndex].value;
+            root.style.setProperty('--nav-bar-color', selectedColor);
+        });
+    },
     startApp: function(){
         if(this.isBrowserIE){
             alert('!!! You are using IE browser, it shows this site not correct !!!');
@@ -83,6 +106,8 @@ App.onLoad = {
         document.getElementById('change-lang').addEventListener('change', function() {
             App.changeLang();
         })
+
+        this.addColorSelector();
 
         App.setLang(App.getLang());
         App.selectCurentLang();

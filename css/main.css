@@ -12,6 +12,13 @@
   margin: 5px;
   background-color: white;
 } */
+
+:root {
+  --body-color: #ccc;
+  --block-color: #0af;
+  --nav-bar-color: #20b2aa;
+}
+
 #navigation{
   position: absolute;
   top: 0;
@@ -19,7 +26,7 @@
   height: 20px;
   display: flex;
   width: calc(100% - 5px);
-  background-color: #20b2aa; /* lightseagreen */
+  background-color: var(--nav-bar-color);  /* #20b2aa; /* lightseagreen */
   padding-left: 5px;
 }
 #nav {
