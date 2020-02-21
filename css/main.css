@@ -404,3 +404,43 @@ display: flex;
 .popup-footer .btn.btn-lg {
   margin: 0 5px;
 }
+
+/** CV block **/
+#cv-body {
+  display: flex;
+  justify-content: center;
+  padding: 100px 0;
+  background-color: #ACADAF;
+  width: 100%;
+}
+#cv-body #left-column,
+#cv-body #right-column {
+  padding: 20px;
+}
+#cv-body #main-list {
+  width: 900px;
+  display: flex;
+}
+#cv-body #left-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  background-color: #3687A0;
+  padding-top: 50px;
+  color: #fff;
+}
+#cv-body #right-column {
+  width: 600px;
+  background-color: #fff;
+  padding-top: 100px;
+}
+.cv-photo {
+  content: url(../img/ava.jpg);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+.skils-header {
+  display: flex;
+}
